@@ -69,6 +69,11 @@ extern NSString *const AtkPasteboardNameDragAndDrop;
 @property (weak, nonatomic, readonly) UIPasteboard* pasteboard;
 
 /**
+ * The scroll view to auto scroll
+ */
+@property (weak, nonatomic) UIScrollView* autoScrollView;
+
+/**
  * The root UIView as set by the call to start:(UIView *) or the UIApplication keyWindow
  * by default. All the players in the drag and drop scenerio must be descendants of rootView.
  */

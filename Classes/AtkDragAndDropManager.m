@@ -151,6 +151,9 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
     
     if(_delegate && [_delegate respondsToSelector:@selector(dragStarted:)])
         [_delegate dragStarted:self];
+    
+    if(_autoScrollView)
+        [_autoScrollView autoScrollDragStarted];
 }
 
 - (void)dragEnded
@@ -172,6 +175,9 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
     
     if(_delegate && [_delegate respondsToSelector:@selector(dragEnded:)])
         [_delegate dragEnded:self];
+    
+    if(_autoScrollView)
+        [_autoScrollView autoScrollDragEnded];
 }
 
 - (void)dragEntered:(id<AtkDropZoneProtocol>)dropZone point:(CGPoint)point
@@ -346,6 +352,12 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
             dropZone.isActive = NO;
             [self dragExited:dropZone.dropZone point:pointInRootView];
         }
+    }
+    
+    if(_autoScrollView)
+    {
+        CGPoint pointInScrollView = [_autoScrollView convertPoint:pointInRootView fromView:self.rootView];
+        [_autoScrollView autoScrollDragMoved:pointInScrollView];
     }
 }
 

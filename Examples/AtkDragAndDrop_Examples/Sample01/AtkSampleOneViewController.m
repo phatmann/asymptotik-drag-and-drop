@@ -50,6 +50,8 @@
     CGRect viewParentFrame = _viewParent.frame;
     
     _scroller.contentSize = viewParentFrame.size;
+    self.dragAndDropManager.autoScrollView = _scroller;
+    
     // Do any additional setup after loading the view from its nib.
 }
 

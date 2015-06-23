@@ -46,7 +46,6 @@
 - (void)dropZoneDragStarted:(AtkDragAndDropManager *)manager
 {
     NSLog(@"AtkSampleOneDropZoneScrollView.dragStarted");
-    [self.view autoScrollDragStarted];
 }
 
 - (BOOL)dropZoneIsInterested:(AtkDragAndDropManager *)manager
@@ -58,7 +57,6 @@
 - (void)dropZoneDragEnded:(AtkDragAndDropManager *)manager
 {
     NSLog(@"AtkSampleOneDropZoneScrollView.dragEnded");
-    [self.view autoScrollDragEnded];
 }
 
 - (void)dropZoneDragEntered:(AtkDragAndDropManager *)manager point:(CGPoint)point
@@ -76,7 +74,6 @@
 
 - (void)dropZoneDragMoved:(AtkDragAndDropManager *)manager point:(CGPoint)point
 {
-    [self.view autoScrollDragMoved:[manager.rootView convertPoint:point toView:self.view]];
 }
 
 - (void)dropZoneDragDropped:(AtkDragAndDropManager *)manager point:(CGPoint)point
